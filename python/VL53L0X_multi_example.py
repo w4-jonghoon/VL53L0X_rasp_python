@@ -27,9 +27,9 @@ import VL53L0X
 import RPi.GPIO as GPIO
 
 # GPIO for Sensor 1 shutdown pin
-sensor1_shutdown = 20
+sensor1_shutdown = 5
 # GPIO for Sensor 2 shutdown pin
-sensor2_shutdown = 16
+sensor2_shutdown = 6
 
 GPIO.setwarnings(False)
 
