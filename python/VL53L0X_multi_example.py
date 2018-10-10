@@ -27,9 +27,9 @@ import VL53L0X
 import RPi.GPIO as GPIO
 
 # GPIO for Sensor 1 shutdown pin
-sensor1_shutdown = 20
+sensor1_shutdown = 5
 # GPIO for Sensor 2 shutdown pin
-sensor2_shutdown = 16
+sensor2_shutdown = 6
 
 GPIO.setwarnings(False)
 
@@ -55,14 +55,14 @@ tof1 = VL53L0X.VL53L0X(i2c_address=0x2D)
 GPIO.output(sensor1_shutdown, GPIO.HIGH)
 time.sleep(0.50)
 tof.open()
-tof.start_ranging(VL53L0X.Vl53l0xAccuracyMode.BETTER)
+tof.start_ranging(VL53L0X.Vl53l0xAccuracyMode.HIGH_SPEED)
 
 # Set shutdown pin high for the second VL53L0X then 
 # call to start ranging 
 GPIO.output(sensor2_shutdown, GPIO.HIGH)
 time.sleep(0.50)
 tof1.open()
-tof1.start_ranging(VL53L0X.Vl53l0xAccuracyMode.BETTER)
+tof1.start_ranging(VL53L0X.Vl53l0xAccuracyMode.HIGH_SPEED)
 
 timing = tof.get_timing()
 if timing < 20000:
