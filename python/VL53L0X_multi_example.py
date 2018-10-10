@@ -56,13 +56,13 @@ tof1.open()
 # call to start ranging 
 GPIO.output(sensor1_shutdown, GPIO.HIGH)
 time.sleep(0.50)
-tof.start_ranging(VL53L0X.Vl53l0xAccuracyMode.BETTER)
+tof.start_ranging(VL53L0X.Vl53l0xAccuracyMode.HIGH_SPEED)
 
 # Set shutdown pin high for the second VL53L0X then 
 # call to start ranging 
 GPIO.output(sensor2_shutdown, GPIO.HIGH)
 time.sleep(0.50)
-tof1.start_ranging(VL53L0X.Vl53l0xAccuracyMode.BETTER)
+tof1.start_ranging(VL53L0X.Vl53l0xAccuracyMode.HIGH_SPEED)
 
 timing = tof.get_timing()
 if timing < 20000:
